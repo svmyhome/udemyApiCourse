@@ -9,7 +9,7 @@ public class FirstTest extends TestConfig {
     //    GOOGLE KEY = AIzaSyBiqOujdjx21nvu1lGQuFmpZbpMkIjmiI4
 
     @Test
-    @Description("Some detailed test description")
+    @Description("Первый простой тест")
     public void myFirstTest() {
         given().
                 when().get(SWAPI_GET_PEOPLE + "1").
