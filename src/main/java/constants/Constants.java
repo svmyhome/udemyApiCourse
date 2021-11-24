@@ -20,6 +20,8 @@ public class Constants {
     public static class Actions {
         public static String SWAPI_GET_PEOPLE = "people/";
         public static String JSON_PLASEHOLDER_GET = "comments/";
+        public static String JSON_PLASEHOLDER_PUT = "posts/1";
+        public static String JSON_PLASEHOLDER_DELETE = "posts/1";
     }
 
 }
