@@ -3,6 +3,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import io.qameta.allure.restassured.AllureRestAssured;
 import org.junit.jupiter.api.Test;
 
 import static constants.Constants.Actions.*;
@@ -16,7 +17,7 @@ public class JsonPlaseHolder extends TestConfig {
     @Feature("Фича вторая")
     @Story("Стори вторая")
     public void GetPlaseholder() {
-        given().queryParam("postId", 1).log().uri().
+        given().filter(new AllureRestAssured()).queryParam("postId", 1).log().uri().
                 when().get(JSON_PLASEHOLDER_GET).
                 then().log().body().statusCode(200);
     }
@@ -32,7 +33,7 @@ public class JsonPlaseHolder extends TestConfig {
                 "   \"body\":\"bar\",\n" +
                 "   \"userId\":1\n" +
                 "}";
-        given().body(jsonBody).log().uri().
+        given().filter(new AllureRestAssured()).body(jsonBody).log().uri().
                 when().put(JSON_PLASEHOLDER_PUT).
                 then().log().body().statusCode(200);
     }
@@ -42,7 +43,7 @@ public class JsonPlaseHolder extends TestConfig {
     @Feature("Фича 2")
     @Story("Стори вторая")
     public void DelPlaseholder() {
-        given().log().uri().
+        given().filter(new AllureRestAssured()).log().uri().
                 when().delete(JSON_PLASEHOLDER_DELETE).
                 then().log().body().statusCode(200);
     }
@@ -58,7 +59,7 @@ public class JsonPlaseHolder extends TestConfig {
                 "   \"userId\":1\n" +
                 "}";
 
-        given().body(JsonPost).log().uri().
+        given().filter(new AllureRestAssured()).body(JsonPost).log().uri().
                 when().post(JSON_PLASEHOLDER_POST).
                 then().log().body().statusCode(201);
     }
@@ -82,10 +83,9 @@ public class JsonPlaseHolder extends TestConfig {
                 "  </Employee>\n" +
                 "</Company>";
 
-        given().body(XmlFile).log().uri().
+        given().filter(new AllureRestAssured()).body(XmlFile).log().uri().
                 when().post("").
                 then().log().body().statusCode(200);
     }
-
 
 }

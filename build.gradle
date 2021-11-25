@@ -16,7 +16,6 @@ group 'com.apiTesting'
 version '1.0-SNAPSHOT'
 
 repositories {
-    jcenter()
     mavenCentral()
 }
 
@@ -29,6 +28,9 @@ dependencies {
 //    testImplementation 'io.rest-assured:rest-assured:4.4.0'
     implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.0-alpha5'
     testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '2.0.0-alpha5'
+    testImplementation group: 'io.qameta.allure', name: 'allure-junit5', version: '2.16.1'
+    implementation group: 'io.qameta.allure', name: 'allure-rest-assured', version: '2.16.1'
+
 }
 
 test {
