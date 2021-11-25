@@ -59,7 +59,7 @@ public class JsonPlaseHolder extends TestConfig {
                 "   \"userId\":1\n" +
                 "}";
 
-        given().filter(new AllureRestAssured()).body(JsonPost).log().uri().
+        given().filter(new AllureRestAssured()).body(JsonPost).log().all().
                 when().post(JSON_PLASEHOLDER_POST).
                 then().log().body().statusCode(201);
     }
@@ -83,7 +83,7 @@ public class JsonPlaseHolder extends TestConfig {
                 "  </Employee>\n" +
                 "</Company>";
 
-        given().filter(new AllureRestAssured()).body(XmlFile).log().uri().
+        given().filter(new AllureRestAssured()).spec(requestSpecificationForXml).body(XmlFile).log().all().
                 when().post("").
                 then().log().body().statusCode(200);
     }

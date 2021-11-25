@@ -5,7 +5,7 @@ import static constants.Constants.Servers.*;
 
 public class Constants {
     public static class RunVariable {
-        public static String server = XML_BIN_URL;
+        public static String server = JSON_PLASEHOLDER_URL;
         public static String path = "";
     }
 
