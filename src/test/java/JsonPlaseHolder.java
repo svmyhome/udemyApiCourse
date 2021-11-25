@@ -17,7 +17,7 @@ public class JsonPlaseHolder extends TestConfig {
     @Feature("Фича вторая")
     @Story("Стори вторая")
     public void GetPlaseholder() {
-        given().filter(new AllureRestAssured()).queryParam("postId", 1).log().uri().  //filter(new AllureRestAssured()). подключает плагин Аллюр
+        given().filter(new AllureRestAssured().setRequestTemplate("http-request.ftl").setResponseTemplate("http-request.ftl")).queryParam("postId", 1).log().uri().  //filter(new AllureRestAssured()). подключает плагин Аллюр
                 when().get(JSON_PLASEHOLDER_GET).
                 then().log().body().statusCode(200);
     }
@@ -33,7 +33,7 @@ public class JsonPlaseHolder extends TestConfig {
                 "   \"body\":\"bar\",\n" +
                 "   \"userId\":1\n" +
                 "}";
-        given().filter(new AllureRestAssured()).body(jsonBody).log().uri().
+        given().filter(new AllureRestAssured().setRequestTemplate("http-request.ftl").setResponseTemplate("http-request.ftl")).body(jsonBody).log().uri().
                 when().put(JSON_PLASEHOLDER_PUT).
                 then().log().body().statusCode(200);
     }
@@ -43,7 +43,7 @@ public class JsonPlaseHolder extends TestConfig {
     @Feature("Фича 2")
     @Story("Стори вторая")
     public void DelPlaseholder() {
-        given().filter(new AllureRestAssured()).log().uri().
+        given().filter(new AllureRestAssured().setRequestTemplate("http-request.ftl").setResponseTemplate("http-request.ftl")).log().uri().
                 when().delete(JSON_PLASEHOLDER_DELETE).
                 then().log().body().statusCode(200);
     }
@@ -59,7 +59,7 @@ public class JsonPlaseHolder extends TestConfig {
                 "   \"userId\":1\n" +
                 "}";
 
-        given().filter(new AllureRestAssured()).body(JsonPost).log().all().
+        given().filter(new AllureRestAssured().setRequestTemplate("http-request.ftl").setResponseTemplate("http-request.ftl")).body(JsonPost).log().all().
                 when().post(JSON_PLASEHOLDER_POST).
                 then().log().body().statusCode(201);
     }
@@ -83,7 +83,7 @@ public class JsonPlaseHolder extends TestConfig {
                 "  </Employee>\n" +
                 "</Company>";
 
-        given().filter(new AllureRestAssured()).spec(requestSpecificationForXml).body(XmlFile).log().all().
+        given().filter(new AllureRestAssured().setRequestTemplate("http-request.ftl").setResponseTemplate("http-request.ftl")).spec(requestSpecificationForXml).body(XmlFile).log().all().
                 when().post("").
                 then().log().body().statusCode(200);
     }
