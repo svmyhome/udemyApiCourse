@@ -17,7 +17,7 @@ public class JsonPlaseHolder extends TestConfig {
     @Feature("Фича вторая")
     @Story("Стори вторая")
     public void GetPlaseholder() {
-        given().filter(new AllureRestAssured()).queryParam("postId", 1).log().uri().
+        given().filter(new AllureRestAssured()).queryParam("postId", 1).log().uri().  //filter(new AllureRestAssured()). подключает плагин Аллюр
                 when().get(JSON_PLASEHOLDER_GET).
                 then().log().body().statusCode(200);
     }
