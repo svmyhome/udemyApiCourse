@@ -33,6 +33,13 @@ dependencies {
 
 }
 
+
+
 test {
     useJUnitPlatform()
+}
+
+task copyConfig(type: Copy) {
+    from 'src/test/resources/environment.xml'
+    into 'build/allure-results'
 }

@@ -1,0 +1,18 @@
+<environment>
+    <parameter>
+        <key>Браузер</key>
+        <value>Chrome</value>
+    </parameter>
+    <parameter>
+        <key>Версия</key>
+        <value>96.0.4664.45</value>
+    </parameter>
+    <parameter>
+        <key>Разрядность</key>
+        <value>64 бит</value>
+    </parameter>
+    <parameter>
+        <key>Среда</key>
+        <value>Зона тестирования 1</value>
+    </parameter>
+</environment>
