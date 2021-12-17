@@ -23,6 +23,7 @@ public class TestConfig {
         RestAssured.baseURI = server;
         RestAssured.basePath = path;
 
+
         RequestSpecification requestSpecificationForJson = new RequestSpecBuilder()
                 .addHeader("Content-Type", "application/json")
                 .addCookie("testCookieJSON")

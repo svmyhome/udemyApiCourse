@@ -19,6 +19,15 @@ repositories {
     mavenCentral()
 }
 
+//ext {
+//    rest_assured_version = 4.4.0
+//}
+
+
+//def rest_assured_version = "4.4.0"
+//def junit_jupiter_version = 5.7
+
+
 dependencies {
     implementation 'io.rest-assured:rest-assured:4.4.0'
     implementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
@@ -33,8 +42,6 @@ dependencies {
 
 }
 
-
-
 test {
     useJUnitPlatform()
 }
@@ -43,3 +50,8 @@ task copyConfig(type: Copy) {
     from 'src/test/resources/environment.xml'
     into 'build/allure-results'
 }
+
+//test.doLast {
+//    copyConfig
+//}
+
