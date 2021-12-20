@@ -17,9 +17,11 @@ public class JsonPlaseHolder extends TestConfig {
     @Feature("Фича вторая")
     @Story("Стори вторая")
     public void GetPlaseholder() {
-        given().filter(new AllureRestAssured().setRequestTemplate("http-request.ftl").setResponseTemplate("http-request.ftl")).queryParam("postId", 1).log().uri().  //filter(new AllureRestAssured()). подключает плагин Аллюр
+        given().filter(new AllureRestAssured().setRequestTemplate("http-request.ftl")
+                        .setResponseTemplate("http-request.ftl")).queryParam("postId", 1)
+                        .log().uri().  //filter(new AllureRestAssured()). подключает плагин Аллюр
                 when().get(JSON_PLASEHOLDER_GET).
-                then().log().body().statusCode(200);
+                then().spec(responseSpecBuilderForGet).log().body();
     }
 
     @Test
@@ -61,7 +63,7 @@ public class JsonPlaseHolder extends TestConfig {
 
         given().filter(new AllureRestAssured().setRequestTemplate("http-request.ftl").setResponseTemplate("http-request.ftl")).body(JsonPost).log().all().
                 when().post(JSON_PLASEHOLDER_POST).
-                then().log().body().statusCode(201);
+                then().spec(responseSpecificationForPost).log().body();
     }
 
     @Test

@@ -2,7 +2,9 @@ package config;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
 import org.junit.jupiter.api.BeforeEach;
 
 import static constants.Constants.RunVariable.server;
@@ -16,6 +18,13 @@ public class TestConfig {
             .addHeader("Content-Type", "application/xml")
             .addCookie("testCookieXML")
             .setBaseUri(XML_BIN_URL)
+            .build();
+
+    protected ResponseSpecification responseSpecBuilderForGet = new ResponseSpecBuilder()
+            .expectStatusCode(200)
+            .build();
+    protected ResponseSpecification responseSpecificationForPost = new ResponseSpecBuilder()
+            .expectStatusCode(200)
             .build();
 
     @BeforeEach
