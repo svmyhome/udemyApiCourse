@@ -7,8 +7,10 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.junit.jupiter.api.BeforeEach;
 
+import static constants.Constants.Path.SWAPI_PATH;
 import static constants.Constants.RunVariable.server;
 import static constants.Constants.RunVariable.path;
+import static constants.Constants.Servers.SWAPI_URL;
 import static constants.Constants.Servers.XML_BIN_URL;
 
 
@@ -20,12 +22,20 @@ public class TestConfig {
             .setBaseUri(XML_BIN_URL)
             .build();
 
+    protected RequestSpecification requestSpecificationForHomecrest = new RequestSpecBuilder()
+            .setBaseUri(SWAPI_URL)
+            .setBasePath(SWAPI_PATH)
+            .build();
+
+
     protected ResponseSpecification responseSpecBuilderForGet = new ResponseSpecBuilder()
             .expectStatusCode(200)
             .build();
     protected ResponseSpecification responseSpecificationForPost = new ResponseSpecBuilder()
             .expectStatusCode(200)
             .build();
+
+
 
     @BeforeEach
     public void setUp() {

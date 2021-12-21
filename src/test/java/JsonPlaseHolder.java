@@ -7,7 +7,9 @@ import io.qameta.allure.restassured.AllureRestAssured;
 import org.junit.jupiter.api.Test;
 
 import static constants.Constants.Actions.*;
+import static constants.Constants.Path.SWAPI_PATH;
 import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.equalTo;
 
 @Epic("Второй Эпик")
 public class JsonPlaseHolder extends TestConfig {
@@ -89,5 +91,7 @@ public class JsonPlaseHolder extends TestConfig {
                 when().post("").
                 then().log().body().statusCode(200);
     }
+
+
 
 }
