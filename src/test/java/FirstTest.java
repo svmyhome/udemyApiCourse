@@ -56,7 +56,7 @@ public class FirstTest extends TestConfig {
                 .body("count", equalTo(82))
                 .body("results.name[0]", equalTo("Luke Skywalker"))
                 .body("results.height[0]", equalTo("172"))
-                .body("results.films[0]", equalTo("https://swapi.dev/api/films/1/"))
+                .body("results.films[0][0]", equalTo("https://swapi.dev/api/films/1/"))
                 .log().body().statusCode(200);
     }
 }
