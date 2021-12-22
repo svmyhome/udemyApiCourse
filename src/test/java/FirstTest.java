@@ -6,6 +6,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.Map;
 
 import static constants.Constants.Actions.SWAPI_GET_PEOPLE;
@@ -118,6 +119,42 @@ public class FirstTest extends TestConfig {
         JsonPath json1 = response.jsonPath();
         String getContentType1 = response.getContentType();
         System.out.println("THIS IS JSON--->" + json1.prettyPrint());
+    }
+
+    @Test
+    @Description("Тест с Gpath1")
+    @Step
+    public void Gpath1() {
+        Response response = given().filter(new AllureRestAssured().setRequestTemplate("http-request.ftl")).log().ifValidationFails().spec(requestSpecificationForHomecrest).  // log().ifValidationFails(). Выводит логирование только в случае ошибки
+                when().get(SWAPI_GET_PEOPLE).
+                then().extract().response(); // log().uri(). Выводит в логирование BODY
+      // System.out.println("->>>>>>>>>" + response.asPrettyString());
+        Map<String, ?> someobject = response.path("results.find {it.name = 'Luke Skywalker'}");
+        System.out.println("someobject ->>>>>" + someobject);
+    }
+
+    @Test
+    @Description("Тест с Gpath2")
+    @Step
+    public void Gpath2() {
+        Response response = given().filter(new AllureRestAssured().setRequestTemplate("http-request.ftl")).log().ifValidationFails().spec(requestSpecificationForHomecrest).  // log().ifValidationFails(). Выводит логирование только в случае ошибки
+                when().get(SWAPI_GET_PEOPLE).
+                then().extract().response(); // log().uri(). Выводит в логирование BODY
+        // System.out.println("->>>>>>>>>" + response.asPrettyString());
+        String url = response.path("results.find {it.name = 'Luke Skywalker'}.url");
+        System.out.println("url ->>>>>" + url);
+    }
+
+    @Test
+    @Description("Тест с Gpath3")
+    @Step
+    public void Gpath3() {
+        Response response = given().filter(new AllureRestAssured().setRequestTemplate("http-request.ftl")).log().ifValidationFails().spec(requestSpecificationForHomecrest).  // log().ifValidationFails(). Выводит логирование только в случае ошибки
+                when().get(SWAPI_GET_PEOPLE).
+                then().extract().response(); // log().uri(). Выводит в логирование BODY
+        System.out.println("->>>>>>>>>" + response.asPrettyString());
+        List listName = response.path("results.findAll {it.films}.name");
+        System.out.println("listName ->>>>>>>>>>>>>>>>>>>>>>>>>" + listName);
     }
 
 }
