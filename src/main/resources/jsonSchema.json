@@ -1,0 +1,163 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Welcome7",
+  "definitions": {
+    "Welcome7": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "candidates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Candidate"
+          }
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidates",
+        "status"
+      ],
+      "title": "Welcome7"
+    },
+    "Candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "formatted_address": {
+          "type": "string"
+        },
+        "geometry": {
+          "$ref": "#/definitions/Geometry"
+        },
+        "icon": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": [
+            "https"
+          ],
+          "qt-uri-extensions": [
+            ".png"
+          ]
+        },
+        "icon_mask_base_uri": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": [
+            "https"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "photos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Photo"
+          }
+        },
+        "place_id": {
+          "type": "string"
+        },
+        "types": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "formatted_address",
+        "geometry",
+        "icon",
+        "icon_mask_base_uri",
+        "name",
+        "photos",
+        "place_id",
+        "types"
+      ],
+      "title": "Candidate"
+    },
+    "Geometry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "location": {
+          "$ref": "#/definitions/Location"
+        },
+        "viewport": {
+          "$ref": "#/definitions/Viewport"
+        }
+      },
+      "required": [
+        "location",
+        "viewport"
+      ],
+      "title": "Geometry"
+    },
+    "Location": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lat": {
+          "type": "number"
+        },
+        "lng": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "lat",
+        "lng"
+      ],
+      "title": "Location"
+    },
+    "Viewport": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "northeast": {
+          "$ref": "#/definitions/Location"
+        },
+        "southwest": {
+          "$ref": "#/definitions/Location"
+        }
+      },
+      "required": [
+        "northeast",
+        "southwest"
+      ],
+      "title": "Viewport"
+    },
+    "Photo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "height": {
+          "type": "integer"
+        },
+        "html_attributions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "photo_reference": {
+          "type": "string"
+        },
+        "width": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "height",
+        "html_attributions",
+        "photo_reference",
+        "width"
+      ],
+      "title": "Photo"
+    }
+  }
+}
