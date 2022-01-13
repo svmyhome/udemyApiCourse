@@ -10,7 +10,7 @@ public class Constants {
     }
 
     public static class Servers {
-        public static String SWAPI_URL = "https://swapi.dev/";
+        public static String SWAPI_URL = "https://swapi.py4e.com/"; //"https://swapi.dev/";
         public static String JSON_PLASEHOLDER_URL = "https://jsonplaceholder.typicode.com/";
         public static String XML_BIN_URL = "https://eniyb07bhh0op.x.pipedream.net/";
     }

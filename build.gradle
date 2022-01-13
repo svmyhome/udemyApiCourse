@@ -19,27 +19,29 @@ repositories {
     mavenCentral()
 }
 
-//ext {
-//    rest_assured_version = 4.4.0
-//}
-
-
-//def rest_assured_version = "4.4.0"
-//def junit_jupiter_version = 5.7
-
+ext {
+    rest_assured_version = "4.4.0"
+    junit_jupiter_api_version = "5.7.0"
+    junit_jupiter_engine_version = "5.7.0"
+    allure_junit5_version = "2.16.1"
+    allure_rest_assured_version = "2.16.1"
+    json_schema_validator_version = "4.4.0"
+    slf4j_api_version = "2.0.0-alpha5"
+    slf4j_simple_version = "2.0.0-alpha5"
+}
 
 dependencies {
-    implementation 'io.rest-assured:rest-assured:4.4.0'
-    implementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    implementation "io.rest-assured:rest-assured:$rest_assured_version"
+    implementation "org.junit.jupiter:junit-jupiter-api:${junit_jupiter_api_version}"
 //    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    runtimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    runtimeOnly "org.junit.jupiter:junit-jupiter-engine:${junit_jupiter_engine_version}"
 //    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 //    testImplementation 'io.rest-assured:rest-assured:4.4.0'
-    implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.0-alpha5'
-    testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '2.0.0-alpha5'
-    testImplementation group: 'io.qameta.allure', name: 'allure-junit5', version: '2.16.1'
-    implementation group: 'io.qameta.allure', name: 'allure-rest-assured', version: '2.16.1'
-    implementation group: 'io.rest-assured', name: 'json-schema-validator', version: '4.4.0'
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: "${slf4j_api_version}"
+    testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: "${slf4j_simple_version}"
+    testImplementation group: 'io.qameta.allure', name: 'allure-junit5', version: "${allure_junit5_version}"
+    implementation group: 'io.qameta.allure', name: 'allure-rest-assured', version: "${allure_rest_assured_version}"
+    implementation group: 'io.rest-assured', name: 'json-schema-validator', version: "${json_schema_validator_version}"
 
 }
 

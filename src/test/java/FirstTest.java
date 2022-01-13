@@ -50,7 +50,7 @@ public class FirstTest extends TestConfig {
         given().filter(new AllureRestAssured().setRequestTemplate("http-request.ftl").setResponseTemplate("http-request.ftl")).spec(requestSpecificationForHomecrest).log().all()
                 .when().get()
                 .then()
-                .body("people", equalTo("https://swapi.dev/api/people/"))
+                .body("people", equalTo("https://swapi.py4e.com/api/people/")) //https://swapi.dev/
                 .log().body().statusCode(200);
     }
 
@@ -62,7 +62,7 @@ public class FirstTest extends TestConfig {
                 .body("count", equalTo(82))
                 .body("results.name[0]", equalTo("Luke Skywalker"))
                 .body("results.height[0]", equalTo("172"))
-                .body("results.films[0][0]", equalTo("https://swapi.dev/api/films/1/"))
+                .body("results.films[0][0]", equalTo("https://swapi.py4e.com/api/films/1/")) //https://swapi.dev/
                 .log().body().statusCode(200);
     }
 
