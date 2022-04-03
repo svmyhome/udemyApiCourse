@@ -4,7 +4,10 @@ import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.http.Headers;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import java.util.Map;
 
@@ -15,7 +18,7 @@ import static io.restassured.matcher.RestAssuredMatchers.matchesXsdInClasspath;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.equalTo;
 
-
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class GoogleApi {
 
     @Test

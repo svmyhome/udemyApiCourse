@@ -4,7 +4,10 @@ import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.http.Headers;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import java.util.List;
 import java.util.Map;
@@ -14,10 +17,13 @@ import static constants.Constants.Path.SWAPI_PATH;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.equalTo;
 
+
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @Epic("Первый Эпик")
 public class FirstTest extends TestConfig {
     //    GOOGLE KEY = AIzaSyBiqOujdjx21nvu1lGQuFmpZbpMkIjmiI4
 
+    @Order(1)
     @Test
     @Description("Первый простой тест")
     @Step
@@ -27,6 +33,7 @@ public class FirstTest extends TestConfig {
                 then().log().all().statusCode(200);
     }
 
+    @Order(2)
     @Test
     @Description("Второй простой тест")
     @Feature("Фича первая")
@@ -59,7 +66,7 @@ public class FirstTest extends TestConfig {
         given().filter(new AllureRestAssured().setRequestTemplate("http-request.ftl").setResponseTemplate("http-request.ftl")).spec(requestSpecificationForHomecrest).log().all()
                 .when().get(SWAPI_GET_PEOPLE)
                 .then()
-                .body("count", equalTo(82))
+                .body("count", equalTo(87))
                 .body("results.name[0]", equalTo("Luke Skywalker"))
                 .body("results.height[0]", equalTo("172"))
                 .body("results.films[0][0]", equalTo("https://swapi.py4e.com/api/films/1/")) //https://swapi.dev/
